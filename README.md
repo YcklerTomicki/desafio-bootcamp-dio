@@ -19,8 +19,9 @@ A estrutura básica simula uma plataforma de educação, com os seguintes compon
 - **Mentoria**
 - **Bootcamp**
 - **Dev (Desenvolvedor)**
+- **Certificado**
 
-Cada dev pode se inscrever em um bootcamp, progredir nos conteúdos e acumular XP (experiência).
+Cada dev pode se inscrever em um bootcamp, progredir nos conteúdos, acumular XP (experiência), ver o seu nível e emitir certificados.
 
 ---
 
