@@ -1,6 +1,7 @@
 import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,6 +37,14 @@ public class Main {
         System.out.println("Conteúdos Inscritos" + devMaria.getConteudosInscritos());
         System.out.println("Conteúdos Concluídos" + devMaria.getConteudosConcluidos());
         System.out.println("XP: " + devMaria.calcularTotalXp());
+        System.out.println("Nível do Dev: " + devMaria.mostrarNivel());
+        System.out.println("------------");
+        Optional<Certificado> certificadosMaria = devMaria.gerarCertificado(bootcamp);
+        if (certificadosMaria.isPresent()) {
+            certificadosMaria.get().exibirCertificado();
+        }else {
+            System.out.println("Ainda não concluiu todos os conteúdos.");
+        }
 
 
         System.out.println("------------");
@@ -51,7 +60,14 @@ public class Main {
         System.out.println("Conteúdos Inscritos" + devJoao.getConteudosInscritos());
         System.out.println("Conteúdos Concluídos" + devJoao.getConteudosConcluidos());
         System.out.println("XP: " + devJoao.calcularTotalXp());
-
+        System.out.println("Nível do Dev: " + devJoao.mostrarNivel());
+        System.out.println("------------");
+        Optional<Certificado> certificadosJoao = devJoao.gerarCertificado(bootcamp);
+        if (certificadosJoao.isPresent()) {
+            certificadosJoao.get().exibirCertificado();
+        }else {
+            System.out.println("Ainda não concluiu todos os conteúdos.");
+        }
 
 
     }

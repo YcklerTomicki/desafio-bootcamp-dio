@@ -1,5 +1,6 @@
 package br.com.dio.desafio.dominio;
 
+import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,6 +31,21 @@ public class Dev {
         return this.conteudosConcluidos.stream()
                 .mapToDouble(Conteudo::calcularXp)
                 .sum();
+    }
+
+    public String mostrarNivel(){
+        double xp  = this.calcularTotalXp();
+        if (xp < 100) return "Júnior";
+        else if (xp < 500) return "Pleno";
+        else return "Sênior";
+    }
+
+    public Optional<Certificado> gerarCertificado(Bootcamp bootcamp){
+        if (conteudosInscritos.isEmpty()){
+            return Optional.of(new Certificado(this.getNome(), bootcamp.getNome(), LocalDate.now()));
+        } else {
+            return Optional.empty();
+        }
     }
 
     public String getNome() {
